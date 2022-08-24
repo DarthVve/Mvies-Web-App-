@@ -1,0 +1,31 @@
+<%- include('header') %>
+    <div id="main">
+        <div class="form">
+            <h3>USER SIGN UP</h3>
+            <form action="/users/register" method="post">
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" name="fullname" class="form-field" placeholder="Enter Your Full Name">
+                    <small></small>
+                </div>
+                <div class="field">
+                    <label>Username</label>
+                    <input name="username" class="form-field" placeholder="Enter Your Username" type="text">
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input name="email" class="form-field" placeholder="Enter Your Email" type="email">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input name="password" class="form-field" placeholder="Fill In Your Password" type="password">
+                </div>
+                <div class="field">
+                    <label>Confirm Password</label>
+                    <input name="confirm_password" class="form-field" placeholder="Confirm Password" type="password">
+                </div>
+                <button type="submit" class="subBtn">REGISTER</button>
+            </form>
+        </div>
+    </div>
+    <%- include('footer') %>

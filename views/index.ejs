@@ -1,0 +1,31 @@
+<%- include('header') %>
+  <div id="main">
+    <div id="content">
+      <div class="box">
+        <% for (let movie of rows) { %>
+          <div class="movie">
+            <div class="movie-image"> <span class="play"><span class="name">VACANCY</span></span>
+              <a href="#"><img src="<%= movie.image %>" alt="" /></a>
+            </div>
+            <div class="info">
+              <p>TITLE: <%= movie.title %>
+              </p>
+              <p>DESCRIPTION: <%= movie.description %>
+              </p>
+              <p>PRICE: <%= movie.price %>
+              </p>
+            </div>
+            <div class="rating">
+              <p>RATING</p>
+              <div class="stars">
+                <div class="stars-in"> </div>
+              </div>
+              <span class="comments">12</span>
+            </div>
+          </div>
+          <% } %>
+            <%- include('news') %>
+      </div>
+    </div>
+  </div>
+  <%- include('footer') %>

@@ -1,0 +1,111 @@
+<%- include('header') %>
+    <div id="main">
+        <div class="dash">
+            <h1>WELCOME To Your Dashboard</h1>
+            <h3>Find Your Movies Below</h3>
+
+            <!-- Modal section -->
+            <section class="modal-sec">
+                <!-- modal buttons -->
+                <div class="button-modal">
+                    <button class="addmovie">Add Movies <i class="fa-solid fa-plus"></i></button>
+                </div>
+
+                <!-- modal -->
+                <div class="modal hidden">
+                    <button class="close-modal"><i class="fa-solid fa-x"></i></button>
+                    <form action="/movies/add-movie" method="post">
+                        <div class="field">
+                            <label>Title</label>
+                            <input type="text" name="title" class="form-field" placeholder="Enter a Title">
+                        </div>
+                        <div class="field">
+                            <label>Description</label>
+                            <input name="description" class="form-field" placeholder="Describe your movie" type="text">
+                        </div>
+                        <div class="field">
+                            <label>Image</label>
+                            <input name="image" class="form-field" placeholder="Enter an image url" type="url">
+                        </div>
+                        <div class="field">
+                            <label>Price</label>
+                            <input name="price" class="form-field" placeholder="Enter a price" type="number">
+                        </div>
+                        <button type="submit" class="subBtn">ADD</button>
+                    </form>
+                </div>
+                <div class="overlay hidden"></div>
+            </section>
+            <div id="content">
+                <div class="box">
+                    <% for (let movie of user.MOVIES) { %>
+                        <div class="movie">
+                            <div class="movie-image"> <span class="play"><span class="name">VACANCY</span></span>
+                                <a href="#"><img src="<%= movie.image %>" alt="" /></a>
+                            </div>
+                            <div class="info">
+                                <p>TITLE: <%= movie.title %>
+                                </p>
+                                <p>DESCRIPTION: <%= movie.description %>
+                                </p>
+                                <p>PRICE: <%= movie.price %>
+                                </p>
+                            </div>
+                            <div class="rating">
+                                <p>RATING</p>
+                                <div class="stars">
+                                    <div class="stars-in"> </div>
+                                </div>
+                                <span class="comments">12</span>
+                            </div>
+                            <div class="btns">
+                                <button class="editBtn"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="delBtn"><i class="fa-regular fa-trash-can"></i></button>
+                            </div>
+                            <!-- edit modal -->
+                            <div class="modal2 hidden">
+                                <button class="close-modal2"><i class="fa-solid fa-x"></i></button>
+                                <form action="/movies/edit/<%= movie.id %>" method="post">
+                                    <div class="field">
+                                        <label>Title</label>
+                                        <input type="text" name="title" class="form-field" placeholder="Change Title">
+                                    </div>
+                                    <div class="field">
+                                        <label>Description</label>
+                                        <input name="description" class="form-field" placeholder="Edit Description"
+                                            type="text">
+                                    </div>
+                                    <div class="field">
+                                        <label>Image</label>
+                                        <input name="image" class="form-field" placeholder="Change Image Url"
+                                            type="url">
+                                    </div>
+                                    <div class="field">
+                                        <label>Price</label>
+                                        <input name="price" class="form-field" placeholder="Change Price" type="number">
+                                    </div>
+                                    <button type="submit" class="subBtn">EDIT</button>
+                                </form>
+                            </div>
+                            <div class="overlay2 hidden"></div>
+                        </div>
+
+                        <!-- delete modal -->
+                        <div class="modal3 hidden">
+                            <button class="close-modal3"><i class="fa-solid fa-x"></i></button>
+                            <h2 class="del-msg">Are You Sure?</h2>
+                            <div class="del-mov">
+                                <form action="/movies/delete/<%= movie.id %>" method="post">
+                                    <button class="delYes" type="submit"><i class="fa-solid fa-check"></i></button>
+                                </form>
+                                <button class="delNo"><i class="fa-solid fa-ban"></i></button>
+                            </div>
+                        </div>
+                        <div class="overlay3 hidden"></div>
+                        <% }%>
+                            <%- include('news') %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('footer') %>
