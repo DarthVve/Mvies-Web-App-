@@ -14,7 +14,7 @@ NB: This is just a personal project, as time passes more functionalities may be 
 ## Documentation
 
 For this project I employed express, node.js, typescript, & javascript, for the backend end I employed
-express' view engine (ejs) with the addition of HTML and CSS of course for the frontend and SQLlite is used as the database solution for persisting data.
+express' view engine (ejs) with the addition of HTML and CSS of course for the frontend and SQLite is used as the database solution for persisting data.
 
 To understand how the API works check the documentation below. For security reasons not all routes were included within the frontend, user data can only be modified from the backend or database services.
 
